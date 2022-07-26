@@ -24,7 +24,7 @@ void nand(){
 	ram[top+1] = !ram[top+1];
 	return;
 }
-void vasm(const string op){
+void vasm(string op){
 	if (top < 15 && OverFlow == false){
 		if (op == "NAND"){
 			nand();
@@ -61,10 +61,10 @@ void print(){
 		}
 	}
 }
-int main(){
-	vasm("NAND"); 
-	vasm("AND");
-	vasm("XOR");
+int main(int argc, char *argv[]){
+	for(int i = 0;i < argc;i++) {
+		vasm(argv[i]);
+	}
 	print();
 	return 0;
 }
